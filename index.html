@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPR Assistant</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            padding: 2rem 0;
+            background: #f5f5f5;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3rem 1rem;
+            background: #f9f9f9;
+        }
+
+        .feature {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            width: 20%;
+            text-align: center;
+        }
+
+        .feature img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .home, .guide, .emergency, .contact {
+            padding: 2rem;
+            background: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            width: 60%;
+            margin: 2rem auto;
+            display: none;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .guide iframe, .emergency iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        footer {
+            padding: 1rem;
+            background: #f5f5f5;
+            color: #333;
+            border-top: 1px solid #ddd;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+    <script>
+        function hideAllSections() {
+            const sections = document.querySelectorAll('.home, .guide, .contact, .emergency');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+        }
+
+        function showHome() {
+            hideAllSections();
+            const homeSection = document.getElementById('home-info');
+            if (homeSection) {
+                homeSection.style.display = 'block';
+                homeSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showGuide() {
+            hideAllSections();
+            const guideSection = document.querySelector('.guide');
+            if (guideSection) {
+                guideSection.style.display = 'block';
+                guideSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showContact() {
+            hideAllSections();
+            const contactSection = document.getElementById('contact-info');
+            if (contactSection) {
+                contactSection.style.display = 'block';
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showEmergency() {
+            hideAllSections();
+            const emergencySection = document.getElementById('emergency-info');
+            if (emergencySection) {
+                emergencySection.style.display = 'block';
+                emergencySection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            hideAllSections(); // 페이지 로드 시 모든 섹션 숨김
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>CPR Assistant</h1>
+    </header>
+    <nav>
+        <a href="#home" onclick="showHome()">홈</a>
+        <a href="#guide" onclick="showGuide()">가이드</a>
+        <a href="#emergency" onclick="showEmergency()">응급</a>
+        <a href="https://q.tkbell.co.kr/student/solo/hallOfFame.do?quizIdx=2489042" target="_blank">퀴즈</a>
+        <a href="#contact" onclick="showContact()">문의</a>
+    </nav>
+    <section class="features">
+        <div class="feature">
+            <img src="./img1.png" alt="홈">
+            <h3>홈</h3>
+            <p>모든 카테고리를 한곳에서 확인하세요.</p>
+        </div>
+        <div class="feature">
+            <img src="./img4.png" alt="가이드">
+            <h3>가이드</h3>
+            <p>단계별 CPR 지침과 팁을 제공합니다.</p>
+        </div>
+        <div class="feature">
+            <img src="./img3.png" alt="응급">
+            <h3>응급</h3>
+            <p>응급 병원 정보와 연락처를 빠르게 확인하세요.</p>
+        </div>
+        <div class = "feature">
+            <img src="./img5.png" alt="퀴즈">
+            <h3>퀴즈</h3>
+            <p>CPR 관련 퀴즈를 풀어보세요.</p>
+        </div>
+        <div class="feature">
+            <img src="./img2.png" alt="문의">
+            <h3>문의</h3>
+            <p>선덕고등학교 문의 정보를 확인하세요.</p>
+        </div>
+    </section>
+    <section class="home" id="home-info">
+        <h2>웹사이트 소개</h2>
+        <p>이 웹사이트는 CPR(심폐소생술)과 관련된 유용한 정보를 제공하기 위해 만들어졌습니다.</p>
+        <p><strong>이 사이트는 선덕고등학교에서 강력 추천하는 웹사이트입니다.</strong></p>
+    </section>
+    <section class="guide" id="guide-info">
+        <h2>CPR 가이드</h2>
+        <h3>가이드 영상 1</h3>
+        <iframe src="https://www.youtube.com/embed/2ZIdOeTZRMk" title="CPR 가이드 영상 1" frameborder="0" allowfullscreen></iframe>
+        <h3>가이드 영상 2</h3>
+        <iframe src="https://www.youtube.com/embed/q7J2T6MFA9g" title="CPR 가이드 영상 2" frameborder="0" allowfullscreen></iframe>
+        <h3>CPR 단계별 설명</h3>
+        <ol>
+            <li>환자의 의식을 확인합니다.</li>
+            <li>의식이 없으면 119에 신고하고, 사람들을 특정하여 AED(자동 심장 충격기)를 요청합니다.</li>
+            <li>가슴 압박을 시작합니다.
+                <ul>
+                    <li>손바닥 뒤꿈치로 환자의 흉골 중앙을 강하게 압박합니다.</li>
+                    <li>분당 100-120회 속도로 시행합니다.</li>
+                    <li>압박 깊이는 약 5cm가 적당합니다.</li>
+                </ul>
+            </li>
+            <li>119 구조대가 도착할 때까지 CPR을 계속 진행합니다.</li>
+    </section>
+    <section class="emergency" id="emergency-info">
+        <h2>응급 병원 정보</h2>
+        <ol>
+            <li><strong>한일병원</strong> - 서울특별시 도봉구 우이천로 308, 02-901-3114, 평일 09:00~17:30</li>
+            <li><strong>서울대학교병원</strong> - 서울특별시 종로구 대학로 101, 02-1588-5700, 평일 08:00~18:00</li>
+            <li><strong>삼성서울병원</strong> - 서울특별시 강남구 일원로 81, 02-3410-2114, 평일 08:30~15:30</li>
+            <li><strong>제주대학교병원</strong> - 제주특별자치도 제주시 아란13길 15, 064-717-1114, 평일 09:00~18:00</li>
+            <li><strong>서울성모병원</strong> - 서울특별시 서초구 반포대로 222, 02-1588-1511, 평일 08:00~17:00</li>
+            <li><strong>고려대학교 안암병원</strong> - 서울특별시 성북구 고려대로 73, 1577-0083, 평일 08:30~17:30</li>
+            <li><strong>인천성모병원 (가톨릭대학교)</strong> - 인천광역시 부평구 동수로 56, 032-280-6364, 평일 08:30~17:00</li>
+            <li><strong>부산대학교병원</strong> - 부산광역시 서구 구덕로 179, 051-240-7000,09:00~17:30</li>
+            <li><strong>부산백병원 (인제대학교)</strong> - 부산광역시 부산진구 복지로 75, 051-890-6114, 평일 09:00~17:00  </li>
+            <li><strong>울산대학교병원</strong> - 울산광역시 동구 대학병원로 25, 052-250-7000, 평일 09:00~17:30</li>
+            <li><strong>경북대학교병원</strong> - 대구광역시 중구 동덕로 130, 053-200-5114, 평일 09:00~18:00</li>
+            <li><strong>대구파티마병원</strong> - 대구광역시 동구 아양로 99, 053-1688-7770, 평일 09:00~17:30</li>
+            <li><strong>전남대학교병원</strong> - 광주광역시 동구 제봉로 42, 1899-0000, 평일 08:30~17:30</li>
+            <li><strong>조선대학교병원</strong> - 광주광역시 동구 필문대로 365, 062-220-3373, 평일 08:00~17:00</li>
+            <li><strong>충남대학교병원</strong> - 대전광역시 중구 문화로 282, 1599-7123, 평일 09:00~18:00</li>
+            <li><strong>강원대학교병원</strong> - 강원특별자치도 춘천시 백령로 156, 033-258-2000, 평일 08:30~17:30</li>
+            <li><strong>충북대학교병원</strong> - 충청북도 청주시 서원구 1순환로 776, 043-269-6114, 평일 09:00~17:00</li>
+            <li><strong>원주세브란스기독병원</strong> - 강원특별자치도 원주시 일산로 20, 033-741-0114, 평일 08:30~17:30</li>
+            <li><strong>순천향대학교 천안병원</strong> - 충청남도 천안시 동남구 순천향6길 31, 041-570-2114, 평일 08:30~17:00</li>
+            <li><strong>제주대학교병원</strong> - 제주특별자치도 제주시 아란13길 15, 064-717-1114, 평일 09:00~18:00</li>
+        </ol>
+        <h2>긴급 연락처</h2>
+        <ul>
+            <li><strong>응급환자 · 화재 발생</strong>: 119</li>
+            <li><strong>가스 사고</strong>: 1544-4500</li>
+            <li><strong>전기 사고</strong>: 1588-7500</li>
+            <li><strong>수도 사고</strong>: 지역번호+120</li>
+            <li><strong>실시간 도로상황</strong>: 1333</li>
+            <li><strong>고속도로 긴급견인</strong>: 1588-2504</li>
+            <li><strong>여성긴급전화</strong>: 1366</li>
+            <li><strong>다누리콜센터</strong>: 1577-1366</li>
+            <li><strong>긴급복지지원</strong>: 129</li>
+        </ul>
+    </section>
+    <section class="contact" id="contact-info">
+        <h2>문의하기</h2>
+        <p>선덕고등학교</p>
+        <p>서울특별시 도봉구 시루봉로 53</p>
+        <p>E-mail: ssjae151@gmail.com</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 CPR Assistant. All rights reserved.</p>
+    </footer>
+</body>
+</html>
